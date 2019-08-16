@@ -1,0 +1,21 @@
+server:
+  #SpringBoot的端口号
+  port: 8901
+
+spring:
+  application:
+    #使用相同的服务名称
+    name: eureka-ha
+  profiles:
+    #单机时区分不同环境下配置文件
+    active: peer1
+
+eureka:
+  client:
+    #服务地址
+    service-url:
+      defaultZone: http://peer2:8902/eureka,http://peer3:8903/eureka
+    register-with-eureka: true
+  instance:
+    hostname: peer1 #指定主机名称
+    prefer-ip-address: false

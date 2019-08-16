@@ -1,0 +1,15 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: custom-order
+eureka:
+  client:
+    #服务地址
+    serviceUrl:
+      defaultZone: http://localhost:8082/eureka
+  instance:
+    #在注册中心status的时候显示ip而不是hostname
+    prefer-ip-address: true
+
+

@@ -1,0 +1,17 @@
+server:
+  #SpringBoot的端口号
+  port: 8082
+eureka:
+  client:
+    #是否注册到服务器
+    register-with-eureka: false
+    #是否需要从服务器获取注册信息
+    fetch-registry: false
+    #服务地址
+    service-url:
+      defaultZone: http://localhost:8082/eureka
+  instance:
+    prefer-ip-address: true
+    #ip-address: 192.168.0.6  强制指定IP地址，默认会获取本机的IP地址
+    #instance-id: http://192.168.0.6:8082  服务中心的信息显示（如果IP地址不显示的话，进行配置）
+    #hostname: Eureka-Server 指定主机名称
