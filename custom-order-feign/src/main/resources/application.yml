@@ -12,4 +12,7 @@ eureka:
     #在注册中心status的时候显示ip而不是hostname
     prefer-ip-address: true
 
-
+logging:
+  level:
+    #给指定的FeignClient设置日志输出级别，在debug级别的时候会打印日志
+    com.hx.customorder.feign.FeignInterface3: debug

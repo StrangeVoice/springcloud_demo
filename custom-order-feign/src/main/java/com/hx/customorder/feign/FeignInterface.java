@@ -4,7 +4,7 @@ import com.hx.customorder.model.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient("PROVIDER-USER")//请求服务名称
+//@FeignClient("PROVIDER-USER")//请求服务名称
 public interface FeignInterface {
 
     //相当于生产者的方法请求路径
