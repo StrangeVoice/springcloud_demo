@@ -18,6 +18,8 @@
     <modules>
         <module>custom-order</module>
         <module>custom-order-feign</module>
+        <module>custom-order-hystrix</module>
+        <module>custom-order-feign-hystrix</module>
         <module>provider-user</module>
         <module>provider-user-copy</module>
         <module>eureka</module>

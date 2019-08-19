@@ -1,0 +1,21 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: custom-order
+eureka:
+  client:
+    #服务地址
+    serviceUrl:
+      defaultZone: http://localhost:8082/eureka
+  instance:
+    #在注册中心status的时候显示ip而不是hostname
+    prefer-ip-address: true
+
+PROVIDER-USER: #服务名称
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #给指定服务配置负载均衡算法
+
+ribbon:
+  eureka:
+    enabled: true #在Eureka中禁用ribbon，禁用后需要自己负责负载均衡
