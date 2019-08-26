@@ -2,6 +2,7 @@ package com.hx;
 
 import feign.Contract;
 import feign.Logger;
+import feign.Retryer;
 import feign.auth.BasicAuthRequestInterceptor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.cloud.openfeign.support.SpringMvcContract;
@@ -27,6 +28,15 @@ public class FeignConfig {
     @Bean
     Logger.Level feignLoggerLevel(){
         return Logger.Level.FULL;
+    }
+
+    /**
+     * Feign默认重试机制
+     * @return
+     */
+    @Bean
+    public Retryer feignRetryer() {
+        return new Retryer.Default();
     }
 
 }

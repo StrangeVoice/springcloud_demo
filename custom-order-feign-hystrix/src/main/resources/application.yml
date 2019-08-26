@@ -17,7 +17,38 @@ logging:
     #给指定的FeignClient设置日志输出级别，在debug级别的时候会打印日志
     com.hx.customorder.feign.FeignInterface3: debug
 
+#ribbon的超时时间
+ribbon:
+  ReadTimeout: 3000 #请求处理的超时时间（毫秒）
+  ConnectTimeout: 3000 #请求连接的超时时间（毫秒）
+  #ribbon的重试机制
+  #同一台实例最大重试次数,不包括首次调用
+  MaxAutoRetries: 1
+  #重试负载均衡其他的实例最大重试次数,不包括首次调用
+  MaxAutoRetriesNextServer: 1
+  #对所有的操作请求都进行重试，如果是get则可以，如果是post,put等操作没有实现幂等的情况下是很危险的，所以设置为false
+  OkToRetryOnAllOperations: false
+
 #Feign启用Hystrix组件
 feign:
   hystrix:
     enabled: true
+
+#hystrix的超时时间
+hystrix:
+  command:
+    #自定义配置
+    #   接口名#方法名(参数类型, ...)
+    FeignInterface4#getUser(Integer):
+      execution:
+        isolation:
+          thread:
+            #超时时间配置（毫秒）
+            timeoutInMilliseconds: 1000
+    #默认配置
+    default:
+      execution:
+        isolation:
+          thread:
+            #超时时间配置（毫秒）
+            timeoutInMilliseconds: 9000

@@ -24,7 +24,7 @@ public class OrderController {
     private String url = "http://localhost:8080/user/";
 
     @GetMapping("/order/{id}")
-    @HystrixCommand(fallbackMethod = "fail",commandProperties = {
+    @HystrixCommand(fallbackMethod = "fail",commandKey = "get-order",commandProperties = {
             @HystrixProperty(name = "execution.isolation.strategy",value = "SEMAPHORE")
     })
     public User getOrder(@PathVariable Integer id){

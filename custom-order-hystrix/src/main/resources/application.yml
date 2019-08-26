@@ -12,10 +12,20 @@ eureka:
     #在注册中心status的时候显示ip而不是hostname
     prefer-ip-address: true
 
-PROVIDER-USER: #服务名称
-  ribbon:
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #给指定服务配置负载均衡算法
-
-ribbon:
-  eureka:
-    enabled: true #在Eureka中禁用ribbon，禁用后需要自己负责负载均衡
+#hystrix的超时时间
+hystrix:
+  command:
+    #自定义配置 根据commandKey区分相同服务实例的不同接口
+    get-order:
+      execution:
+        isolation:
+          thread:
+            #超时时间配置（毫秒）
+            timeoutInMilliseconds: 1000
+    #默认配置
+    default:
+      execution:
+        isolation:
+          thread:
+            #超时时间配置（毫秒）
+            timeoutInMilliseconds: 9000
