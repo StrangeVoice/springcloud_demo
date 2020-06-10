@@ -1,0 +1,23 @@
+server:
+  port: 10000
+spring:
+  application:
+    name: apigateway-zuul
+  security:
+    # 配置访问zuul的routes的时候使用
+    user:
+      name: user
+      password: 123
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8082/eureka
+  instance:
+    prefer-ip-address: true
+zuul:
+  # 配置路由映射
+  routes:
+    # 给指定的服务做映射，比如当前是给provider-user添加映射地址为/pu
+    provider-user: /pu/**
+  # zuul会从Eureka上找到所有注册的服务，然后全部做代理，如果我们不想要代理其中一些服务，只需要添加这个配置，多个服务以逗号分隔
+  ignored-services: custom-order

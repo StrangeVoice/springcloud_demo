@@ -3,6 +3,7 @@ server:
 spring:
   application:
     name: provider-user
+#    name: provider-user-v1.0
 eureka:
   client:
     serviceUrl:

@@ -1,0 +1,25 @@
+server:
+  port: 10000
+spring:
+  application:
+    name: apigateway-zuul
+  security:
+    # 配置访问zuul的routes的时候使用
+    user:
+      name: user
+      password: 123
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8082/eureka
+  instance:
+    prefer-ip-address: true
+zuul:
+  # 配置路由映射
+  routes:
+    # 随便写，但是必须保证是唯一的
+    order:
+      # 映射的路径
+      path: /co/**
+      # 做映射的服务名称
+      serviceId: custom-order

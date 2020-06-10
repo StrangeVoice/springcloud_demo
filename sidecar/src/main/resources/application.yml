@@ -1,0 +1,16 @@
+server:
+  port: 4000
+spring:
+  application:
+    name: sidecar
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8082/eureka
+  instance:
+    prefer-ip-address: true
+sidecar:
+  # 监听异构服务应用的端口号，host(域名)必须和当前的sidecar所在host一致
+  port: 3000
+  # 应用的健康检查接口的uri
+  health-uri: http://localhost:${sidecar.port}/health
