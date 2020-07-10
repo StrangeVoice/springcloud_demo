@@ -1,0 +1,10 @@
+server:
+  port: 1111
+# 配置配置文件的仓库地址
+spring:
+  cloud:
+    config:
+      server:
+        git:
+#          uri: https://github.com/StrangeVoice/springcloud_demo 基础
+#          uri: https://github.com/StrangeVoice/{application} 通配符

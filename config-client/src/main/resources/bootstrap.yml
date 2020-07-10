@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    config:
+      # 配置config-server的地址，配置server相关的信息必须放到bootstrap.yml中
+      uri: http://192.168.0.6:1111
+      profile: config
+      # 使用 git 时默认为 master
+      label: master
+  # 表示 master 分支中名称为 application-config 文件
+  application:
+    name: application
+

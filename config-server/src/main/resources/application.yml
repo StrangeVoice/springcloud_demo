@@ -1,0 +1,15 @@
+server:
+  port: 1111
+# 配置配置文件的仓库地址
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/StrangeVoice/springcloud_demo #默认配置
+          repos:
+            ik-analyzer-solr:
+              uri: https://github.com/StrangeVoice/ik-analyzer-solr #当访问的是 ik-analyzer-solr 的时候执行
+            novel-cloud: #当访问的是 novel-cloud 并且符合以下规则的时候的时候请求的 uri
+              pattern: novel*/dev*,novel*/test*
+              uri: https://github.com/StrangeVoice/novel-cloud
